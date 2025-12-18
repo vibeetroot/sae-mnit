@@ -30,24 +30,21 @@ document.querySelectorAll('.team-card').forEach(card => {
   });
 });
 
+const exploreBtn = document.getElementById('exploreTeamsBtn');
+const teamsSection = document.getElementById('teams');
 
-  /* SMOOTH IN-PAGE SCROLL (FIXED HEADER OFFSET) */
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const target = document.querySelector(link.getAttribute('href'));
-      if (!target) return;
+if (exploreBtn && teamsSection) {
+  exploreBtn.addEventListener('click', () => {
+    const headerOffset = document.querySelector('.site-header')?.offsetHeight || 0;
+    const y = teamsSection.getBoundingClientRect().top + window.pageYOffset - headerOffset - 20;
 
-      e.preventDefault();
-
-      const offset = 110;
-      const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: y,
-        behavior: 'smooth'
-      });
+    window.scrollTo({
+      top: y,
+      behavior: 'smooth'
     });
   });
+}
+
 // Competition timeline interaction
 document.querySelectorAll('.timeline-item').forEach(item => {
   item.addEventListener('click', () => {
