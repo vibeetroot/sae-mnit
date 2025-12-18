@@ -35,28 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const sideMenu = document.getElementById("sideMenu");
   const overlay = document.getElementById("menuOverlay");
 
-  if (hamburger && sideMenu && overlay) {
+hamburger.addEventListener("click", () => {
+  sideMenu.classList.toggle("active");
+  overlay.classList.toggle("active");
+  document.body.classList.toggle("menu-open");
+});
 
-    hamburger.addEventListener("click", () => {
-      sideMenu.classList.toggle("active");
-      overlay.classList.toggle("active");
-      document.body.classList.toggle("menu-open");
-    });
-
-    overlay.addEventListener("click", () => {
-      sideMenu.classList.remove("active");
-      overlay.classList.remove("active");
-      document.body.classList.remove("menu-open");
-    });
-
-    document.querySelectorAll(".side-menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        sideMenu.classList.remove("active");
-        overlay.classList.remove("active");
-        document.body.classList.remove("menu-open");
-      });
-    });
-  }
+overlay.addEventListener("click", () => {
+  sideMenu.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("menu-open");
+});
 
   /* ================= EXPLORE TEAMS BUTTON ================= */
   const exploreBtn = document.getElementById("exploreTeamsBtn");
