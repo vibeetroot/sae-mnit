@@ -1371,5 +1371,58 @@ img {
     padding:260px ;
     aspect-ratio: 1/1;
   }
+html, body {
+  overflow-x: hidden;
+}
+@media (max-width: 900px) {
+
+  .teams-grid {
+    grid-template-columns: 1fr;   /* ⬅️ STACK */
+    gap: 32px;
+  }
+
+  .team-card {
+    height: auto;
+    padding: 28px;
+  }
+}
+@media (max-width: 900px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .about-text p {
+    margin: 0 auto;
+  }
+
+  .about-links {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+@media (max-width: 900px) {
+
+  .tvaran-split-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .tvaran-media {
+    padding: 0;
+  }
+
+  .tvaran-content {
+    align-items: center;
+  }
+}
 
 }
