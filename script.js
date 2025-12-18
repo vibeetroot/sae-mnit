@@ -50,6 +50,15 @@ if (hamburger && sideMenu && overlay) {
   });
 
 }
+document.querySelectorAll(".side-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.classList.remove("menu-open");
+  });
+});
+
+});
 
 
   /* ================= EXPLORE TEAMS BUTTON ================= */
