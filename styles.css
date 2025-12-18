@@ -329,9 +329,6 @@ html{
   scroll-behavior:smooth;
 }
 
-section[id]{
-  scroll-margin-top:120px;
-}
 
 /* ================= RAVEN MISSION DOMAIN CARDS ================= */
 
@@ -565,6 +562,7 @@ body.ravencrew .domain-card:hover{
 
 .teams-section{
   min-height: 100vh;
+ padding:120px 0;
   background:#031219;
   display:flex;
   align-items:center;
