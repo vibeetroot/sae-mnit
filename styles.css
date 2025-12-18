@@ -923,6 +923,36 @@ body.ravencrew .domain-card:hover{
   object-fit:contain;
 }
 
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+/* hamburger placement */
+.hamburger{
+  position:absolute;
+  right:32px;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  z-index:2000;
+}
+@media (max-width: 768px){
+  .nav{
+    display:none;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+}
 
 
 @media(max-width:480px){
@@ -1099,15 +1129,24 @@ body.ravencrew .domain-card:hover{
 /* ================= COMPETITIONS TIMELINE ================= */
 
 #competitions{
-  position:relative;
+  position: relative;
   background:
     radial-gradient(circle at center, rgba(245,214,107,0.06), transparent 55%),
     linear-gradient(180deg,#07121a,#031219);
+
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:0;                 /* 🔥 remove padding */
+  scroll-margin-top:110px;   /* header offset */
 }
+
 
 .timeline{
   max-width:760px;
-  margin:80px auto 0;
+  margin:auto 0;
   position:relative;
   padding-left:40px;
 }
@@ -1622,4 +1661,3 @@ html, body {
 }
 
 }
-
