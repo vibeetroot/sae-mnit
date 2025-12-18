@@ -80,13 +80,7 @@ body{
   pointer-events: auto;
 }
 
-.side-menu {
-  z-index: 1500;
-}
 
-.menu-overlay {
-  z-index: 1400;
-}
 body.menu-open{
   overflow:hidden;
 }
@@ -105,6 +99,21 @@ body.menu-open{
 .side-menu.active{
   right:0;
 }
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  opacity:0;
+  pointer-events:none;   /* 🔥 THIS is the key fix */
+  transition:.3s;
+  z-index:1050;
+}
+
+.menu-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
 .menu-overlay{
   position:fixed;
   inset:0;
