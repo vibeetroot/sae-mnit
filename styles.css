@@ -505,7 +505,11 @@ body.ravencrew .domain-card:hover{
 .about-section{
   padding:120px 0;
   background:#041018;
+  min-height: 100vh;              /* fills full screen */
+  display: flex;
+  align-items: center;            /* vertical centering */
 }
+
 .about {
   display: flex;
   justify-content: center;   /* centers whole section */
@@ -1618,3 +1622,4 @@ html, body {
 }
 
 }
+
