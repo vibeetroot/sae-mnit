@@ -9,15 +9,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* PAGE TRANSITION FOR HTML LINKS */
-  document.querySelectorAll('a[href$=".html"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const href = link.getAttribute('href');
-      fader.style.opacity = 1;
-      setTimeout(() => window.location = href, 420);
-    });
+window.addEventListener('pageshow', () => {
+  const fader = document.getElementById('page-fader');
+  if (fader) {
+    fader.style.opacity = 0;
+    fader.style.pointerEvents = 'none';
+  }
+});
+document.querySelectorAll('.team-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const target = card.dataset.target;
+    if (!target) return;
+
+    const fader = document.getElementById('page-fader');
+    fader.style.opacity = 1;
+
+    setTimeout(() => {
+      window.location.href = target;
+    }, 400);
   });
+});
+
 
   /* SMOOTH IN-PAGE SCROLL (FIXED HEADER OFFSET) */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
