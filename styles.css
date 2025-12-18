@@ -1246,6 +1246,121 @@ body.ravencrew .timeline::before{
   }
 }
 
+@media (max-width: 768px) {
+
+  .hero-title {
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+  }
+
+  .cta-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 900px) {
+
+  .tvaran-split-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .tvaran-media img {
+    max-width: 260px;
+  }
+
+  .tvaran-content {
+    align-items: center;
+    padding: 0 16px;
+  }
+
+  .tvaran-eyebrow {
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+
+  .header-inner {
+    grid-template-columns: 1fr auto;
+    height: 64px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .nav {
+    display: none; /* hide nav on small screens */
+  }
+}
+@media (max-width: 768px) {
+
+  .timeline {
+    padding-left: 24px;
+  }
+
+  .timeline-item {
+    gap: 16px;
+  }
+
+  .timeline-card {
+    padding: 16px 18px;
+  }
+
+  .timeline-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-card p {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 768px) {
+
+  .members-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  .member-box h4 {
+    font-size: 0.95rem;
+  }
+
+  .member-box p {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 768px) {
+
+  .section {
+    padding: 64px 0;
+  }
+
+  #mission {
+    padding: 96px 0;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  * {
+    text-shadow: none;
+    box-shadow: none;
+  }
+}
+
 @media(max-width:900px){
   .tvaran-split-card{
     grid-template-columns:1fr;
