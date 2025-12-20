@@ -46,6 +46,15 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("active");
   document.body.classList.remove("menu-open");
 });
+/* ================= CLOSE MENU ON LINK CLICK ================= */
+
+document.querySelectorAll('.side-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('sideMenu').classList.remove('active');
+    document.getElementById('menuOverlay').classList.remove('active');
+    document.body.classList.remove('menu-open');
+  });
+});
 
   /* ================= EXPLORE TEAMS BUTTON ================= */
   const exploreBtn = document.getElementById("exploreTeamsBtn");
