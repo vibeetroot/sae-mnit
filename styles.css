@@ -321,6 +321,11 @@ body.menu-open{
   margin:auto;
 }
 
+/* ================= SECTION HEADER SPACING ================= */
+
+.section .center{
+  margin-bottom: 64px;   /* 🔥 SAME GAP EVERYWHERE */
+}
 
 /* ================= BUTTONS ================= */
 
@@ -336,7 +341,13 @@ body.menu-open{
   border-radius:10px;
   text-decoration:none;
   font-weight:700;
+
+  display:flex;                 /* 🔥 ADD */
+  align-items:center;           /* 🔥 ADD */
+  justify-content:center;       /* 🔥 ADD */
+  text-align:center;            /* 🔥 ADD */
 }
+
 
 .btn-primary{
   border:2px solid var(--accent);
@@ -679,6 +690,85 @@ body.ravencrew .domain-card:hover{
   line-height:1.6;
 }
 
+
+/* contacts */
+
+/* ================= CONTACT SECTION ================= */
+
+.contact-section{
+  padding: 80px 0;
+}
+
+.contact-card{
+  max-width: 700px;
+  margin: auto;
+  padding: 40px 32px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+}
+
+.contact-title{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.contact-underline{
+  width: 80px;
+  height: 3px;
+  margin: 12px auto 32px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* contact list */
+
+.contact-list{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-item{
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  transition: transform .3s ease, background .3s ease;
+}
+
+.contact-item:hover{
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-4px);
+}
+
+.contact-name{
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.contact-detail{
+  display: block;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+  .contact-card{
+    padding: 28px 20px;
+  }
+  .contact-title{
+    font-size: 26px;
+  }
+}
+
 /* ================= TEAMS SECTION ================= */
 
 .teams-section{
@@ -805,23 +895,8 @@ body.ravencrew .domain-card:hover{
   border:1.5px solid var(--red);
 }
 
-.team-ravencrew::before{
-  content:"";
-  position:absolute;
-  inset:-1px;
-  border-radius:22px;
-  background:linear-gradient(120deg,#f55f6c,#1c4f6d);
-  opacity:0.22;
-  z-index:-1;
-}
+/* ===== FINAL RAVEN LOGO CENTER FIX ===== */
 
-.team-ravencrew .team-bg-img{
-  opacity:0.16;
-  filter:
-    grayscale(100%)
-    brightness(1.15)
-    contrast(1.2);
-}
 
 .team-ravencrew h3{
   color:#ffecee;
@@ -829,16 +904,6 @@ body.ravencrew .domain-card:hover{
 
 .team-ravencrew .team-link{
   color:var(--red);
-}
-
-.team-raven::before{
-  content:"";
-  position:absolute;
-  inset:-1px;
-  border-radius:22px;
-  background:linear-gradient(120deg,#f55f6c,#1c4f6d);
-  opacity:0.22;
-  z-index:-1;
 }
 
 .team-raven .team-bg-img{
@@ -857,6 +922,11 @@ body.ravencrew .domain-card:hover{
   color:#f55f6c;
 }
 
+.team-card{
+  position:relative;
+  z-index:1;
+  overflow: hidden;
+}
 
 /* ================= INDEX — RAVENCREW CARD FIX ================= */
 
@@ -876,15 +946,59 @@ body.ravencrew .domain-card:hover{
   text-shadow: 0 0 22px rgba(0,226,255,.25);
 }
  
+
+.team-card{
+  position: relative;
+  overflow: hidden;
+  transition: transform .4s ease;
+}
+
+.team-card:hover{
+  transform: translateY(-12px) scale(1.03);
+}
+
+
+.team-bg-img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.team-tvaran{
+  border:1px solid var(--gold);
+}
+
+.team-tvaran h3{
+  color:#eafcff;
+}
+
+.team-tvaran .team-link{
+  color:var(--gold);
+}
+
+.team-raven{
+  border:1.5px solid var(--red);
+}
+
+.team-raven h3{
+  color:#ffecee;
+}
+
+.team-raven .team-link{
+  color:var(--red);
+}
+
 /* Hover Effects */
 .team-card:hover{
   transform:translateY(-12px) scale(1.03);
 }
 
-.team-card:hover .team-bg-img{
-  transform:scale(1.08);
-  transition:.6s ease;
-}
+
 /* ================= TVARAN SPLIT HERO ================= */
 
 .tvaran-split-hero{
@@ -901,6 +1015,13 @@ body.ravencrew .domain-card:hover{
   align-items:center;
   justify-content:center; /* center them */
   flex-wrap:wrap;      /* wraps nicely on small screens */
+}
+/* ===== FIX TVARAN HERO BUTTON WIDTH ===== */
+
+.btn-row .btn{
+  min-width: 280px;      /* 🔥 makes box longer */
+  padding: 12px 24px;    /* 🔥 horizontal padding */
+  white-space: nowrap;   /* 🔥 PREVENTS line break */
 }
 
 .tvaran-split-card{
@@ -1582,7 +1703,7 @@ img {
   }
 
   .tvaran-media{
-    padding:260px ;
+    padding:24px ;
     aspect-ratio: 1/1;
   }
 html, body {
@@ -1600,6 +1721,52 @@ html, body {
     padding: 28px;
   }
 }
+
+/* ================= TVARAN HERO MOBILE FIX ================= */
+
+@media (max-width: 768px){
+
+  .tvaran-split-hero{
+    padding-top: 0px;          /* header offset */
+    min-height: 100vh;
+    margin-bottom: 4px;
+  }
+
+  .tvaran-split-card{
+    display: flex;              /* override grid */
+    flex-direction: column;     /* stack */
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* LOGO GOES TOP */
+  .tvaran-media{
+    order: -1;
+  }
+
+  .tvaran-media img{
+    max-width: 480px;           /* 🔥 fixes floating logo */
+    opacity: 0.9;
+    width: 95%;
+  height: auto;
+  margin-top: 160px;
+  }
+
+  /* CONTENT CENTERED */
+  .tvaran-content{
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .team-title-hero{
+    font-size: 2.6rem;
+    margin: 0;
+  }
+
+}
+
+
 @media (max-width: 900px) {
 
   .about-grid {
@@ -1643,6 +1810,99 @@ html, body {
     align-items: center;
   }
 }
+
+@media (max-width: 600px) {
+
+  .btn{
+    width: auto;            /* ⬅️ remove full-width */
+    padding: 12px 18px;     /* ⬅️ reduce height */
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .cta-row{
+    gap: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .btn{
+    width: 90%;          /* not full screen */
+    max-width: 360px;    /* prevents giant buttons */
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+}
+/* ================= HERO BUTTON MOBILE FIX ================= */
+@media (max-width: 600px) {
+
+  .cta-row{
+    gap: 10px;
+  }
+
+  .btn{
+    width: 88%;              /* ❌ no full-width slabs */
+    max-width: 340px;        /* keeps it neat */
+    padding: 12px 14px;      /* 🔽 reduce height */
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 0 auto;          /* center buttons */
+  }
+
+}
+/* ================= TVARAN MOBILE CTA FIX ================= */
+
+.tvaran-actions{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;                 /* 🔥 fixes huge spacing */
+}
+
+@media (max-width: 600px){
+
+  .tvaran-actions .btn{
+    width: auto;             /* ❌ no giant slabs */
+    min-width: 180px;
+    padding: 10px 16px;      /* 🔽 compact height */
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+}
+
+/* ================= TVARAN HERO MOBILE FIX ================= */
+
+.tvaran-actions{
+  margin-top: 20px;                 /* 🔥 closer to text */
+  padding: 20px 16px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.04);  /* subtle glass box */
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 600px){
+
+  .tvaran-actions .btn{
+    width: 100%;                    /* ✅ uniform */
+    max-width: 320px;
+    padding: 12px 16px;                /* cleaner height */
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+}
+
+.tvaran-actions .btn{
+  white-space: nowrap;
+}
+
 @media (max-width: 768px) {
 
   .side-menu{
