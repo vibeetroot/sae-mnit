@@ -178,9 +178,11 @@ body.menu-open{
 .gear-right{ right:-10%; top:20%; }
 
 .hero-content{
-  text-align:center;
-  z-index:2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 🔥 ensures CTA aligns with heading */
 }
+
 
 .hero-title{
   font-family:"Montserrat";
@@ -332,9 +334,11 @@ body.menu-open{
 .cta-row{
   margin-top:28px;
   display:flex;
-  justify-content:center;
+  flex-direction: column;     /* 🔥 stack vertically */
+  align-items: center;        /* 🔥 center horizontally */
   gap:16px;
 }
+
 
 .btn{
   padding:14px 26px;
@@ -346,6 +350,11 @@ body.menu-open{
   align-items:center;           /* 🔥 ADD */
   justify-content:center;       /* 🔥 ADD */
   text-align:center;            /* 🔥 ADD */
+}
+@media (min-width: 769px){
+  .cta-row .btn{
+    width: 280px;            /* 🔥 same width = perfect alignment */
+  }
 }
 
 
@@ -1092,13 +1101,17 @@ body.ravencrew .domain-card:hover{
 }
 
 .tvaran-content{
-  padding:56px 48px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:flex-start;   /* 🔥 key */
-  color:#dbeaf0;
+  padding: 56px 32px;          /* ⬅️ reduce side push */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;         /* 🔥 KEY FIX */
+  text-align: center;          /* 🔥 matches visual center */
+
+  max-width: 520px;            /* 🔥 prevents drift */
 }
+
 
 .tvaran-eyebrow{
   display: block;
