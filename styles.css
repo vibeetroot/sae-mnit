@@ -34,6 +34,7 @@ body{
   background:rgba(5,15,20,.85);
   backdrop-filter:blur(8px);
   z-index:1000;
+  
 }
 
 .header-inner{
@@ -159,13 +160,13 @@ body.menu-open{
 /* ================= HERO ================= */
 
 .fullwidth-hero{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-  padding-top:120px;
-  overflow:hidden;
+  min-height: calc(100vh - 64px); /* header height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 64px;
+  padding-bottom: 40px;
+  text-align: center;
 }
 
 .hero-gear{
@@ -180,7 +181,13 @@ body.menu-open{
 .hero-content{
   display: flex;
   flex-direction: column;
-  align-items: center;   /* 🔥 ensures CTA aligns with heading */
+  align-items: center;     /* horizontal centering */
+  justify-content: center; /* vertical grouping */
+
+  text-align: center;
+  width: 100%;
+  padding: 0 24px;
+  margin: 0 auto;
 }
 
 
@@ -332,11 +339,12 @@ body.menu-open{
 /* ================= BUTTONS ================= */
 
 .cta-row{
-  margin-top:28px;
-  display:flex;
-  flex-direction: column;     /* 🔥 stack vertically */
-  align-items: center;        /* 🔥 center horizontally */
-  gap:16px;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
 }
 
 
@@ -352,9 +360,11 @@ body.menu-open{
   text-align:center;            /* 🔥 ADD */
 }
 @media (min-width: 769px){
-  .cta-row .btn{
-    width: 280px;            /* 🔥 same width = perfect alignment */
-  }
+.cta-row .btn{
+  width: 100%;
+  max-width: 260px;
+  text-align: center;
+}
 }
 
 
@@ -463,7 +473,7 @@ body.ravencrew .domain-card:hover{
   width:100%;
   height:100%;
   object-fit:cover;       
-  opacity:0.25;
+  opacity:0.35;
   z-index:0;
 }
 
@@ -916,7 +926,7 @@ body.ravencrew .domain-card:hover{
 }
 
 .team-raven .team-bg-img{
-  opacity:0.16;
+  opacity:0.36;
   filter:
     grayscale(100%)
     brightness(1.15)
@@ -973,7 +983,7 @@ body.ravencrew .domain-card:hover{
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0.18;
+  opacity: 0.48;
   pointer-events: none;
   z-index: 0;
 }
@@ -1544,14 +1554,6 @@ body.ravencrew .timeline::before{
 
 @media (max-width: 768px) {
 
-  .hero-title {
-    font-size: 2.4rem;
-    line-height: 1.2;
-  }
-
-  .hero-sub {
-    font-size: 1rem;
-  }
 
   .cta-row {
     flex-direction: column;
@@ -1956,6 +1958,14 @@ html, body {
   .about-links{
     justify-content: center;
   }
+
 }
+
+@media (max-width: 380px){
+  .hero-content{
+    padding: 0 16px;
+  }
+}
+
 
 }
